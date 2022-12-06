@@ -8,11 +8,13 @@ async function textm(req ,res, next){
     const lastname = req.body.lastname
 
     const fullname = name + " "+ lastname
-   
+    console.log('here')
+
     const vonage = new Vonage({
       apiKey: "84dd5389",
       apiSecret: "UhVinlagQ2ChaODU"
     })
+    console.log('here2')
     
     vonage.message.sendSms(from, to, fullname + "היי סמיה אשמח שתחזרי אלי במספר " + from, (err, responseData) => {
         if (err) {
@@ -27,7 +29,11 @@ async function textm(req ,res, next){
            res.json({msg:'סליחה אך ההודעה לא נשלחה משום מה'})
             }
         }
+        console.log('here3')
+
     })
+    console.log('here4')
+
 }
 
 module.exports.textm = textm;
